@@ -113,9 +113,9 @@ class GszgSpider(Base):
             for page in range(pages):
                 url = self.get_uri(major=self.列表页 % (name, page + 1, 10), _uri=self.search_uri, token=token)
                 html = self.get_text(url=url, headers=self.headers, sess=False)
-                self.company_list(html, meta)
+                self.company_list(html)
 
-    def company_list(self, response, meta):
+    def company_list(self, response):
         print('company_list---')
         json_obj = self.choice_result(response)
         if json_obj:
